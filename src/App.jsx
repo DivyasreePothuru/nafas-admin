@@ -1,12 +1,26 @@
 import "./App.css";
+import Inputpage from "./Inputpage";
 import Dishes from "./data.json";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { createContext } from "react";
+export const AppContext = createContext();
 
 function App() {
+  const navigate = useNavigate();
+
   const infoDetail = (key) => {
-    alert("You clicked dish ID " + key);
+    // alert("You clicked dish ID " + key);
+    <Inputpage />;
   };
   return (
     <div className="App">
+      <AppContext.Provider value={{}}>
+        <Routes>
+          <Route path="/inputpage" element={<Inputpage/>} />
+        </Routes>
+      </AppContext.Provider>
+
       <div className="leftbar">
         {Dishes &&
           Dishes.map((dish) => {
@@ -27,7 +41,7 @@ function App() {
           })}
       </div>
 
-   
+      <input type="text" />
     </div>
   );
 }
