@@ -8,16 +8,21 @@ export const AppContext = createContext();
 
 function App() {
   const navigate = useNavigate();
+  function inputHandler() {
+    <button>Edit</button>
+    
+    navigate("/inputpage");
+  }
 
   const infoDetail = (key) => {
     // alert("You clicked dish ID " + key);
-    <Inputpage />;
+    // <Inputpage />;
   };
   return (
     <div className="App">
       <AppContext.Provider value={{}}>
         <Routes>
-          <Route path="/inputpage" element={<Inputpage/>} />
+          {/* <Route path="/inputpage" element={<Inputpage/>} /> */}
         </Routes>
       </AppContext.Provider>
 
@@ -31,7 +36,7 @@ function App() {
                 onClick={() => infoDetail(dish.id)}
               >
                 {/* images from URL */}
-                <img src={dish.URL} className="card_image" alt="dish" />
+                <img onClick={inputHandler} src={dish.URL} className="card_image" alt="dish" />
                 {/* text on overlay banner */}
                 <div className="card_overlay">
                   {dish.name} <br />( {dish.category} )
